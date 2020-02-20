@@ -224,14 +224,14 @@ CREATE (a)-[r:KNOWS {since: 2003}]->(b)</pre>
 	<p>Previous slide explained how you can create relationships between nodes. In this exercise we will define more relationships within our graph.</p>
   </div>
   <div class="col-sm-4">
-	<p>By changing the names in the <code>WHERE</code> condition you can define relationships between nodes.</p>
+	<p>By changing the names in the<code>WHERE</code>condition you can define relationships between nodes.</p>
 	<ul>
 		<li>Father & Mother</li>
 		<li>Brother & Sister</li>
 		<li>Uncle & Aunt</li>
 	</ul>
 	<br/>
-	<p>By changing <code>KNOWS</code> you can change different types of relations.</p>
+	<p>By changing <code>KNOWS</code> you can create relationships towards your other nodes.</p>
 	<ul>
 		<li>Organisations</li>
 		<li>Skills</li>
@@ -242,6 +242,28 @@ CREATE (a)-[r:KNOWS {since: 2003}]->(b)</pre>
   </div>
  </div>
  </div>
+ 
+ 
+ 
+ <slide class="row-fluid">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <h3>Review your graph</h3>
+    <br/>
+	<p>You have now created a graph! All your entities are stored in the database and you can start analysing.</p>
+  </div>
+  <div class="col-sm-4">
+	<p>We will start with showing your complete graph. Please be aware that this exercise can be demanding for your laptop</p>
+	<pre mode="cypher"  class="highlight pre-scrollable programlisting cm-s-neo code runnable standalone-example ng-binding" data-lang="cypher" lang="cypher">MATCH (n)
+RETURN n;</pre>
+  </div>
+  <div class="col-sm-4">
+
+  </div>
+ </div>
+ </div>
+ </slide>
  
  
 <!--TEMPLATE FOR MAKING A SLIDE-->
