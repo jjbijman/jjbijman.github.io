@@ -1,0 +1,267 @@
+<style type="text/css" media="screen">
+/*
+.nodes-image {
+	margin:-100;
+}
+*/	
+    .imageblock .content img {
+        max-width: 900px;
+        max-height: 300px;
+    }
+	.deck h3 {
+		display: block !important;
+		margin-bottom:8px;
+		margin-top:5px;
+	}
+	.listingblock {
+		margin:8px;
+	}
+	.pull-bottom {
+		position:relative;
+		bottom:1em;
+	}
+</style>
+<style type="text/css" media="screen">
+#editor.maximize-editor .CodeMirror-code {
+ font-size:40px;
+ line-height:45px;
+}
+</style><article class="guide">
+  <carousel class="deck container-fluid">
+    <!--slide class="row-fluid">
+      <div class="col-sm-3">
+        <h3>Get Started</h3>
+        <p class="lead">Information</p>
+			<!dl>
+				
+				
+				
+				
+				
+			</dl>
+		</div>
+      <div class="col-sm-9">
+        <figure>
+          <img style="width:300px" src=""/>
+        </figure>
+      </div>
+    </slide-->
+
+<slide class="row-fluid">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-8">
+    <h3>Welcome to the AICE Build Knowledge Graph workshop!</h3>
+	</br>
+	<p>Start by typing <code>:play intro</code> into the command-line and pressing <kbd>Enter</kbd>. Please follow the guide to learn about our user interface.</p>
+    <br/>
+  </div>
+  <div class="col-sm-4">
+	<div class="imageblock" style="float: right;">
+		<div class="content">
+			<img src="http://localhost:8001/html/AICEBuild.jpg" alt="graphs are coming" >
+		</div>
+	</div>
+  </div>
+ </div>
+ </div>
+ </slide>
+
+
+
+<slide class="row-fluid">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <h3>Introduction</h3>
+    <br/>
+	<p>Today we will build our own graph in Neo4j.</p>
+  </div>
+  <div class="col-sm-4">
+	<p>By the end of this workshop you will have a understanding of:</p>
+	<ul>
+		<li>Graph database fundamentals</li>
+		<li>Query language Cypher</li>
+		<li>The power of graph setup #Linking new nodes from other graphs</li>
+	</ul>
+  </div>
+  <div class="col-sm-4">
+
+  </div>
+ </div>
+ </div>
+</slide>
+
+
+
+<slide class="row-fluid">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <h3>Graph Fundamentals</h3>
+    <br/>
+	<p>Graph fundamentals description..</p>
+  </div>
+  <div class="col-sm-4">
+	<p>A graph consists of a couple of basic concepts. Data will be stored using a few simple concepts:</p>
+	<ul>
+		<li>Nodes - graph data records</li>
+		<li>Relationships - connecting the nodes</li>
+		<li>Properties - data values for the node or relationship</li>
+	</ul>
+	</div>
+  </div>
+  <div class="col-sm-4">
+
+  </div>
+ </div>
+ </div>
+</slide>
+
+
+
+<slide class="row-fluid">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <h3>Nodes</h3>
+    <br/>
+	<p>Neo4j stores data in Nodes, which you can compare as records in a database</p>
+  </div>
+  <div class="col-sm-4">
+	<p>During this workshop you will create your own personal graph.</p>
+  </div>
+  <div class="col-sm-4">
+	<h3>Create a node</h3>
+	<!--INSERT NODE IMAGE-->
+	
+	<pre mode="cypher"  class="highlight pre-scrollable programlisting cm-s-neo code runnable standalone-example ng-binding" data-lang="cypher" lang="cypher">CREATE (ee:Person { name: "Jeroen", year: "1993"})</pre>
+	<ul>
+		<li><code>CREATE</code> clause to create data</li>
+		<li><code>()</code> parenthesis to indicate a node</li>
+		<li><code>ee:Person</code> a variable 'ee' and label 'Person' for the new node</li>
+		<li><code>{}</code> brackets to add properties <code>name</code> and values <code>"Jeroen"</code> to the node</li>
+	</ul>
+  </div>
+ </div>
+ </div>
+ </slide>
+
+
+
+<slide class="row-fluid">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <h3>Exercise 1</h3>
+    <br/>
+	<p>Previous slide explained how you can create a node about yourself. In this exercise we will populate our graph with more nodes.</p>
+  </div>
+  <div class="col-sm-4">
+	<p>By changing the name and year previous exercise, you can create more Person nodes. Make nodes for:
+	<ul>
+		<li>Father & Mother</li>
+		<li>Brother & Sister</li>
+		<li>Uncle & Aunt</li>
+	</ul>
+	<br/>
+	<p><code>Person</code> indicates that this node is a Person, create some other types of nodes. For example:</p>
+	<ul>
+		<li>Organisations</li>
+		<li>Skills</li>
+		<li>Pets</li>
+	</ul>
+  </div>
+  <div class="col-sm-4">
+	<h3>Return nodes</h3>
+	<p>You can query your nodes with the following statement</p>
+	<pre mode="cypher"  class="highlight pre-scrollable programlisting cm-s-neo code runnable standalone-example ng-binding" data-lang="cypher" lang="cypher">MATCH (ee:Person) WHERE ee.name = "Jeroen" RETURN ee;</pre>
+	<ul>
+		<li><code>MATCH</code> clause to specify a pattern of nodes and relationships</li>
+	</ul>
+  </div>
+ </div>
+ </div>
+ </slide>
+ 
+ 
+ 
+ <slide class="row-fluid">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <h3>Relationships</h3>
+    <br/>
+	<p>The real power of Neo4j starts with connected data. To associate any two nodes, add a Relationship which describes how the records are related.</p>
+  </div>
+  <div class="col-sm-4">
+	<p>We can start with defining who KNOWS whom in our graph</p>
+	<ul>
+		<li>Relationships always have direction and can be bi-directional</li>
+		<li>Relationships always have a type</li>
+		<li>Relationships form patterns of data</li>
+		<li>Relationships can have properties</li>
+	</ul>
+  </div>
+  <div class="col-sm-4">
+	<h3>Make relationship</h3>
+	<br/>
+	<pre mode="cypher"  class="highlight pre-scrollable programlisting cm-s-neo code runnable standalone-example ng-binding" data-lang="cypher" lang="cypher">MATCH (a:Person), (b.Person)
+WHERE a.name = "Jeroen" AND b.name = "PersonB"
+CREATE (a)-[r:KNOWS {since: 2003}]->(b)</pre>
+  </div>
+ </div>
+ </div>
+ </slide>
+
+ 
+ 
+ <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <h3>Exercise 2</h3>
+    <br/>
+	<p>Previous slide explained how you can create relationships between nodes. In this exercise we will define more relationships within our graph.</p>
+  </div>
+  <div class="col-sm-4">
+	<p>By changing the names in the <code>WHERE</code> condition you can define relationships between nodes.</p>
+	<ul>
+		<li>Father & Mother</li>
+		<li>Brother & Sister</li>
+		<li>Uncle & Aunt</li>
+	</ul>
+	<br/>
+	<p>By changing <code>KNOWS</code> you can change different types of relations.</p>
+	<ul>
+		<li>Organisations</li>
+		<li>Skills</li>
+		<li>Pets</li>
+	</ul>
+  </div>
+  <div class="col-sm-4">
+  </div>
+ </div>
+ </div>
+ 
+ 
+<!--TEMPLATE FOR MAKING A SLIDE-->
+<slide class="row-fluid">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+    <h3>Graph Fundamentals</h3>
+    <br/>
+	<p>Graph fundamentals description..</p>
+  </div>
+  <div class="col-sm-4">
+
+  </div>
+  <div class="col-sm-4">
+
+  </div>
+ </div>
+ </div>
+ </slide>
+
+
+</article>
